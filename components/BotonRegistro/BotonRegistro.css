@@ -1,0 +1,20 @@
+.botonesDeRegistro {
+    width: 250px;
+    height: 45px;
+    font-size: 1.1rem;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+}
+
+.botonesDeRegistro:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 1px;
+}
+
+@media screen and (max-width: 500px) {
+    .botonesDeRegistro {
+        width: 100%;
+        font-size: 1rem
+    }
+}
