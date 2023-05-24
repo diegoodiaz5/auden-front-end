@@ -3,6 +3,29 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 185, 103, 1) 77%, rgba(255, 142, 10, 1) 100%);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#crearCuentaParrafo {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    position: relative;
+}
+
+#linkArrow {
+    position: absolute;
+    left: 20px;
+}
+
+#crearCuentaTitulo {
+    font-weight: 600;
+    margin: 0;
+
 }
 
 #formRegistro {
@@ -12,12 +35,20 @@
     gap: 30px;
     border: 2px solid #FF8E0A;
     padding: 60px 30px;
+    background-color: rgba(255, 255, 255, 0.411);
 }
 
 #labelRegistro {
     font-size: 2rem;
     max-width: 300px;
     text-align: center;
+}
+
+#contenedorInputBoton {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
 }
 
 #inputRegistro {
@@ -33,13 +64,6 @@
 #inputRegistro:focus {
     outline: none;
     border: 2px solid #FF8E0A;
-}
-
-#errorEmail {
-    color: rgb(255, 0, 0);
-    font-size: .8rem;
-    font-weight: 600;
-    height: 15px;
 }
 
 #inputRegistro>p {
