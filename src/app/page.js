@@ -2,6 +2,7 @@ import homeStyles from "../../styles/home.module.css"
 import "../../styles/globals.css"
 import { josefinSans } from "./fonts.js"
 import BotonRegistro from "../../components/BotonRegistro/BotonRegistro"
+import Link from "next/link"
 
 export default function Home() {
 
@@ -34,7 +35,7 @@ export default function Home() {
       <h2 id={homeStyles.musicaMedida}>Música a medida</h2>
       <div id={homeStyles.contenedorFinalHome}>
         <div id={homeStyles.contenedorDeBotones}>
-          <BotonRegistro estilos={botonRegistro} />
+          <Link href="registro"><BotonRegistro estilos={botonRegistro} /></Link>
           <BotonRegistro estilos={botonGoogle} />
           <BotonRegistro estilos={botonApple} />
         </div>
