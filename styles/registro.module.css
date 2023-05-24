@@ -1,0 +1,82 @@
+#sectionRegistro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#formRegistro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    border: 2px solid #FF8E0A;
+    padding: 60px 30px;
+}
+
+#labelRegistro {
+    font-size: 2rem;
+    max-width: 300px;
+    text-align: center;
+}
+
+#inputRegistro {
+    border: 2px solid grey;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 240px;
+    height: 45px;
+    font-size: 1.1rem;
+    padding: 0 10px;
+}
+
+#inputRegistro:focus {
+    outline: none;
+    border: 2px solid #FF8E0A;
+}
+
+#errorEmail {
+    color: rgb(255, 0, 0);
+    font-size: .8rem;
+    font-weight: 600;
+    height: 15px;
+}
+
+#inputRegistro>p {
+    font-size: .5rem;
+}
+
+#inputRegistro:valid~button {
+    background-color: #FF8E0A;
+}
+
+#botonContinuar {
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 260px;
+    height: 45px;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    color: white;
+    background-color: rgba(172, 171, 171, 0.603);
+    border: none;
+}
+
+@media screen and (max-width: 400px) {
+    #formRegistro {
+        border: none;
+        padding: 0;
+    }
+
+    #labelRegistro {
+        font-size: 1.5rem;
+    }
+
+    #inputRegistro {
+        width: 90%;
+    }
+
+    #botonContinuar {
+        width: 94%;
+    }
+}
