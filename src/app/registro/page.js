@@ -42,9 +42,30 @@ export default function Registro() {
         }
     }
 
+    const verificarEmail = async (e) => {
+        e.preventDefault();
+        console.log("hola");
+        const enviarEmail = await fetch('http://localhost:1234/verificarEmail', {
+            method: 'POST',
+            body: JSON.stringify({ email }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
+        const respuesta = await enviarEmail.json();
+        // * Si el email existe, entonces devuelve true
+        console.log(respuesta)
+        if (respuesta === true) {
+            // Agregar un parrafo que diga que el email ya está registrado
+        } else {
+            // Poder avanzar a la siguiente parte del form
+        }
+    }
+
     return (
         <section id={registroStyles.sectionRegistro}>
-            <form id={registroStyles.formRegistro} onSubmit={registrarEmail}>
+            <form id={registroStyles.formRegistro} >
                 <div id={registroStyles.crearCuentaParrafo}>
                     <Link id={registroStyles.linkArrow} href={'/'}><Image
                         src='/flecha-atras.png'
@@ -60,9 +81,11 @@ export default function Registro() {
                 <div id={registroStyles.contenedorInputBoton}>
                     <input id={registroStyles.inputRegistro} ref={inputEmail} autoFocus required type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" onChange={capturarEmail}></input>
                     <p>Deberás poder confirmarlo luego</p>
+                    <button id={registroStyles.botonContinuar} ref={botonContinuar} onClick={verificarEmail}>Continuar</button>
 
-                    <button id={registroStyles.botonContinuar} ref={botonContinuar} disabled>Continuar</button>
                 </div>
+
+
             </form>
         </section>
     )
