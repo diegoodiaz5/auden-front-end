@@ -148,6 +148,19 @@
     width: 40px;
 }
 
+#segundoLabel {
+    padding: 0;
+}
+
+#errorMsgNombre {
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+    color: red;
+    font-size: .8rem;
+    max-width: 250px;
+}
+
 @media screen and (max-width: 400px) {
     #formRegistro {
         border: none;
