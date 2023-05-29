@@ -40,6 +40,15 @@
 
 #labelRegistro {
     font-size: 2rem;
+}
+
+.errorMessage {
+    visibility: hidden;
+    color: red;
+    font-weight: 600px;
+}
+
+#contenedorPrimerRegistro {
     max-width: 300px;
     text-align: center;
 }
@@ -49,9 +58,10 @@
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    padding-top: 10px;
 }
 
-#inputRegistro {
+.inputRegistro {
     border: 2px solid grey;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -61,7 +71,7 @@
     padding: 0 10px;
 }
 
-#inputRegistro:focus {
+.inputRegistro:focus {
     outline: none;
     border: 2px solid #FF8E0A;
 }
@@ -74,7 +84,8 @@
     background-color: #FF8E0A;
 }
 
-#botonContinuar {
+#botonContinuar,
+#botonContinuarDos {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     width: 260px;
@@ -86,10 +97,62 @@
     border: none;
 }
 
+#contenedorSegundoRegistro {
+    flex-direction: column;
+    max-width: 300px;
+    gap: 10px;
+    display: none;
+    align-items: center;
+}
+
+#tituloNombreContraseña {
+    text-align: center;
+}
+
+.labelSegundoRegistro {
+    text-align: left;
+    padding-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#contenedorDeInputContraseña {
+    position: relative;
+}
+
+#ojoCerradoImagen {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: inline;
+}
+
+#ojoAbiertoImagen {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    display: none;
+}
+
+#terminosCondiciones {
+    display: flex;
+    padding-top: 20px;
+}
+
+.terminosNaranja {
+    color: #FF8E0A;
+    font-weight: 700;
+}
+
+#checkBox {
+    width: 40px;
+}
+
 @media screen and (max-width: 400px) {
     #formRegistro {
         border: none;
-        padding: 0;
+        padding: 20px;
+        width: 95%;
     }
 
     #labelRegistro {
