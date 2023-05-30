@@ -39,7 +39,7 @@ export default function Home() {
           <BotonRegistro estilos={botonGoogle} />
           <BotonRegistro estilos={botonApple} />
         </div>
-        <p id={homeStyles.iniciarSesion}>Iniciar sesión</p>
+        <Link href="login" id={homeStyles.linkLogin}><p id={homeStyles.iniciarSesion}>Iniciar sesión</p></Link>
       </div>
     </main>
   )

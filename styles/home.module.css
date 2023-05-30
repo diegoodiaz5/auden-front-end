@@ -59,6 +59,13 @@
     justify-content: space-evenly;
 }
 
+#linkLogin:visited,
+#linkLogin:active,
+#linkLogin:link {
+    color: black;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 500px) {
     .main {
         background: url('https://images.pexels.com/photos/5077069/pexels-photo-5077069.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
