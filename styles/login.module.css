@@ -1,0 +1,95 @@
+#sectionLogin {
+    height: 100vh;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 185, 103, 1) 77%, rgba(255, 142, 10, 1) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#conteinerLogin {
+    padding: 70px 0px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+#primeraLineaLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#IniciarSesion {
+    font-weight: 700;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+#flechaAtrasLogin {
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.labelsLogin {
+    padding-top: 30px;
+    padding-bottom: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.inputsLogin {
+    border: 2px solid grey;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 240px;
+    height: 45px;
+    font-size: 1.1rem;
+    padding: 10px;
+}
+
+.inputsLogin:focus {
+    outline: none;
+    border: 2px solid #FF8E0A;
+}
+
+#botonIniciarSesion {
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    width: 240px;
+    height: 45px;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    color: white;
+    background-color: rgba(172, 171, 171, 0.603);
+    border: none;
+    cursor: default;
+}
+
+#inputContraseñaLogin {
+    margin-bottom: 30px;
+}
+
+#errorMsg {
+    color: red;
+    font-size: .8rem;
+    text-align: center;
+    font-weight: 600;
+    height: 15px;
+    visibility: hidden;
+}
+
+#olvidasteContraseña {
+    text-align: center;
+    font-size: .8rem;
+    font-weight: 600;
+    padding-top: 15px;
+}
