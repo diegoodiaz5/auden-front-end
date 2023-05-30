@@ -21,6 +21,8 @@ export default function Registro() {
     const ojoCerrado = React.useRef(null);
     const ojoAbierto = React.useRef(null);
     const segundoLabel = React.useRef(null);
+    const flechaHaciaHome = React.useRef(null);
+    const flechaHaciaAtrasEnRegistro = React.useRef(null);
 
     const [email, setEmail] = useState('');
     const [estadoBotonContinuar, setEstadoBotonContinuar] = useState(true);
@@ -57,6 +59,8 @@ export default function Registro() {
         const primerCont = primerContenedorRegistro.current;
         const segundoCont = segundoContenedorRegistro.current;
         const boton = botonContinuarUno.current;
+        const flechaHome = flechaHaciaHome.current;
+        const flechaAtras = flechaHaciaAtrasEnRegistro.current;
 
         if (respuesta === true) {
             errorMsg.style.visibility = "visible";
@@ -67,6 +71,8 @@ export default function Registro() {
             boton.disabled = true;
             boton.style.cursor = "default";
             boton.style.transform = "scale(1)"
+            flechaHome.style.display = "none";
+            flechaAtras.style.display = "inline";
         }
     }
 
@@ -151,11 +157,23 @@ export default function Registro() {
         }
     }
 
+    const retrocederEnRegistro = () => {
+        const flechaHome = flechaHaciaHome.current;
+        const flechaAtras = flechaHaciaAtrasEnRegistro.current;
+        const primerCont = primerContenedorRegistro.current;
+        const segundoCont = segundoContenedorRegistro.current;
+        flechaHome.style.display = "inline";
+        flechaAtras.style.display = "none";
+        primerCont.style.display = "inline";
+        segundoCont.style.display = "none";
+
+    }
+
     return (
         <section id={registroStyles.sectionRegistro}>
             <form id={registroStyles.formRegistro} >
                 <div id={registroStyles.crearCuentaParrafo}>
-                    <Link id={registroStyles.linkArrow} href={'/'}><Image
+                    <Link id={registroStyles.linkArrow} href={'/'} ref={flechaHaciaHome}><Image
                         src='/flecha-atras.png'
                         width={25}
                         height={25}
@@ -163,6 +181,15 @@ export default function Registro() {
                         id={registroStyles.flechaAtrasImage}
                     />
                     </Link>
+                    <Image
+                        src='/flecha-atras.png'
+                        width={25}
+                        height={25}
+                        alt="flecha-atras"
+                        id={registroStyles.segundaFlechaAtrasImage}
+                        ref={flechaHaciaAtrasEnRegistro}
+                        onClick={retrocederEnRegistro}
+                    />
                     <p id={registroStyles.crearCuentaTitulo}>Crear cuenta </p>
                 </div>
                 <div id={registroStyles.contenedorPrimerRegistro} ref={primerContenedorRegistro}>

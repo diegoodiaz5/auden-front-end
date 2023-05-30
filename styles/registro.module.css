@@ -18,8 +18,16 @@
 }
 
 #linkArrow {
+    display: inline;
     position: absolute;
     left: 20px;
+}
+
+#segundaFlechaAtrasImage {
+    display: none;
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
 }
 
 #crearCuentaTitulo {
