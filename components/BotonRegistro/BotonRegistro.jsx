@@ -1,5 +1,5 @@
 import React from 'react'
-import "./BotonRegistro.css"
+import botonRegistroStyles from "../../styles/botonRegistro.module.css"
 
 export default function BotonRegistro({ estilos }) {
     const estilosProps = {
@@ -9,6 +9,6 @@ export default function BotonRegistro({ estilos }) {
         border: estilos.border,
     }
     return (
-        <button className='botonesDeRegistro' style={estilosProps}>{estilosProps.texto}</button>
+        <button className={botonRegistroStyles.botonesDeRegistro} style={estilosProps}>{estilosProps.texto}</button>
     )
 }
