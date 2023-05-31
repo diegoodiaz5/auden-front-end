@@ -1,4 +1,5 @@
 #sectionLogin {
+    padding: 70px;
     height: 100vh;
     background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 185, 103, 1) 77%, rgba(255, 142, 10, 1) 100%);
     display: flex;
@@ -7,20 +8,32 @@
 }
 
 #conteinerLogin {
-    padding: 70px 0px;
-    height: 100vh;
     display: flex;
     flex-direction: column;
+    padding: 70px;
+    height: 100vh;
+    border: 1px solid #FF8E0A;
 }
 
-#primeraLineaLogin {
+#contenedorRecuperarContraseña {
+    display: none;
+    padding: 70px;
+    height: 100vh;
+    flex-direction: column;
+    border: 1px solid #FF8E0A;
+    position: relative;
+}
+
+#primeraLineaLogin,
+#primeraLineaRecuperarContra {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
 }
 
-#flechaAtrasLoginLink {
+#flechaAtrasLoginLink,
+#flechaAtrasRecuperarContra {
     padding: 0;
     margin: 0;
     position: absolute;
@@ -28,14 +41,16 @@
     cursor: pointer;
 }
 
-#IniciarSesion {
+#IniciarSesion,
+#recuperarCuenta {
     font-weight: 700;
     font-size: 1rem;
     display: flex;
     justify-content: center;
 }
 
-#formLogin {
+#formLogin,
+#formRecuperarContraseña {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -63,7 +78,8 @@
     border: 2px solid #FF8E0A;
 }
 
-#botonIniciarSesion {
+#botonIniciarSesion,
+#continuarRecuperarContraseña {
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     width: 240px;
@@ -74,6 +90,11 @@
     background-color: rgba(172, 171, 171, 0.603);
     border: none;
     cursor: default;
+}
+
+#continuarRecuperarContraseña {
+    position: absolute;
+    bottom: 15px;
 }
 
 #inputContraseñaLogin {
@@ -94,6 +115,11 @@
     font-size: .8rem;
     font-weight: 600;
     padding-top: 15px;
+    cursor: pointer;
+}
+
+#olvidasteContraseña:hover {
+    text-decoration: underline;
 }
 
 #contenedorInputContraseña {
@@ -115,4 +141,10 @@
     position: absolute;
     right: 15px;
     cursor: pointer;
+}
+
+#parrafoRecuperarContraseña {
+    font-size: .8rem;
+    color: rgb(83, 83, 83);
+    max-width: 250px;
 }

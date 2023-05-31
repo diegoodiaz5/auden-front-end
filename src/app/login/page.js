@@ -15,11 +15,16 @@ export default function Login() {
     const msgError = React.useRef(null);
     const ojoCerrado = React.useRef(null);
     const ojoAbierto = React.useRef(null);
+    const contenedorLogin = React.useRef(null);
+    const contenedorRecuperarContraseña = React.useRef(null);
+    const botonContinuarRecupContra = React.useRef(null);
 
     const [userinfo, setUserinfo] = useState('');
     const [contraseña, setContraseña] = useState('');
     const [botonDisabled, setBotonDisabled] = useState(true);
     const [estadoInput, setEstadoInput] = useState("password");
+    const [botonRecuperarContraseña, setBotonRecuperarContraseña] = useState(true);
+    const [recuperarContra, setRecuperarContra] = useState('');
 
     const capturarUserinfo = (e) => {
         setUserinfo(e.target.value);
@@ -94,9 +99,31 @@ export default function Login() {
         setEstadoInput("password");
     }
 
+    const mostrarRecuperarContraseña = () => {
+        const contLogin = contenedorLogin.current;
+        const contRecupContra = contenedorRecuperarContraseña.current;
+        contLogin.style.display = "none";
+        contRecupContra.style.display = "flex";
+    }
+
+    const capturarRecuperarContraseña = (e) => {
+        const botonContinuar = botonContinuarRecupContra.current;
+        e.preventDefault();
+        setRecuperarContra(e.target.value)
+        if (e.target.value.length >= 3) {
+            setBotonRecuperarContraseña(false);
+            botonContinuar.style.backgroundColor = "#FF8E0A"
+            botonContinuar.style.cursor = "pointer";
+        } else {
+            setBotonRecuperarContraseña(true);
+            botonContinuar.style.backgroundColor = "rgba(172, 171, 171, 0.603)";
+            botonContinuar.style.cursor = "default";
+        }
+    }
+
     return (
         <section id={loginStyles.sectionLogin}>
-            <div id={loginStyles.conteinerLogin}>
+            <div id={loginStyles.conteinerLogin} ref={contenedorLogin}>
                 <div id={loginStyles.primeraLineaLogin}>
                     <Link href={"/"} id={loginStyles.flechaAtrasLoginLink}>
                         <Image
@@ -108,12 +135,9 @@ export default function Login() {
                         />
                     </Link><p id={loginStyles.IniciarSesion}>Iniciar Sesión</p>
                 </div>
-
                 <form id={loginStyles.formLogin}>
                     <label className={loginStyles.labelsLogin}>Nombre de Usuario o E-mail:</label>
-
                     <input className={loginStyles.inputsLogin} autoFocus onChange={capturarUserinfo} minLength="3" ref={inputInfoUser} type='text'></input>
-
                     <label className={loginStyles.labelsLogin}>Contraseña:</label>
                     <div id={loginStyles.contenedorInputContraseña}>
                         <input className={loginStyles.inputsLogin} id={loginStyles.inputContraseñaLogin} minLength="8" onChange={capturarContraseña} ref={inputContraseña} type={estadoInput}></input>
@@ -138,7 +162,25 @@ export default function Login() {
                     <p id={loginStyles.errorMsg} ref={msgError}>* Usuario o contraseña incorrectos</p>
                     <button id={loginStyles.botonIniciarSesion} onClick={enviarDatos} disabled={botonDisabled} ref={botonIniciarSesion}>Iniciar Sesion</button>
                 </form>
-                <p id={loginStyles.olvidasteContraseña}>¿Olvidaste tu contraseña?</p>
+                <p id={loginStyles.olvidasteContraseña} onClick={mostrarRecuperarContraseña}>¿Olvidaste tu contraseña?</p>
+            </div>
+            <div id={loginStyles.contenedorRecuperarContraseña} ref={contenedorRecuperarContraseña}>
+                <div id={loginStyles.primeraLineaRecuperarContra}>
+                    <Image
+                        src='/flecha-atras.png'
+                        width={19}
+                        height={19}
+                        alt="flecha-atras"
+                        id={loginStyles.flechaAtrasRecuperarContraseña}
+                    />
+                    <p id={loginStyles.recuperarCuenta}>Recuperar Cuenta</p>
+                </div>
+                <form id={loginStyles.formRecuperarContraseña}>
+                    <label className={loginStyles.labelsLogin}>Nombre de usuario o E-mail</label>
+                    <input className={loginStyles.inputsLogin} minLength="3" onChange={capturarRecuperarContraseña}></input>
+                    <p id={loginStyles.parrafoRecuperarContraseña}>Deberás poder ingresar al email de la cuenta para poder recuperarla</p>
+                    <button id={loginStyles.continuarRecuperarContraseña} disabled={botonRecuperarContraseña} ref={botonContinuarRecupContra}>Continuar</button>
+                </form>
             </div>
         </section >
 
