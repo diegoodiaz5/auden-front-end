@@ -20,17 +20,19 @@
     position: relative;
 }
 
+#flechaAtrasLoginLink {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+
 #IniciarSesion {
     font-weight: 700;
     font-size: 1rem;
     display: flex;
     justify-content: center;
-}
-
-#flechaAtrasLogin {
-    position: absolute;
-    left: 0;
-    cursor: pointer;
 }
 
 #formLogin {
@@ -75,7 +77,7 @@
 }
 
 #inputContraseñaLogin {
-    margin-bottom: 30px;
+    padding-right: 30px;
 }
 
 #errorMsg {
@@ -92,4 +94,25 @@
     font-size: .8rem;
     font-weight: 600;
     padding-top: 15px;
+}
+
+#contenedorInputContraseña {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 30;
+}
+
+#ojoCerradoImagen {
+    display: inline;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
+}
+
+#ojoAbiertoImagen {
+    display: none;
+    position: absolute;
+    right: 15px;
+    cursor: pointer;
 }

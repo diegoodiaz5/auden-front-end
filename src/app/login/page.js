@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import loginStyles from "../../../styles/login.module.css";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export default function Login() {
     const router = useRouter();
@@ -12,10 +13,13 @@ export default function Login() {
     const inputContraseña = React.useRef(null);
     const botonIniciarSesion = React.useRef(null);
     const msgError = React.useRef(null);
+    const ojoCerrado = React.useRef(null);
+    const ojoAbierto = React.useRef(null);
 
     const [userinfo, setUserinfo] = useState('');
     const [contraseña, setContraseña] = useState('');
     const [botonDisabled, setBotonDisabled] = useState(true);
+    const [estadoInput, setEstadoInput] = useState("password");
 
     const capturarUserinfo = (e) => {
         setUserinfo(e.target.value);
@@ -74,25 +78,63 @@ export default function Login() {
         }
     }
 
+    const mostrarContraseña = () => {
+        const ojoCerradoImg = ojoCerrado.current;
+        const ojoAbiertoImg = ojoAbierto.current;
+        ojoCerradoImg.style.display = "none";
+        ojoAbiertoImg.style.display = "inline";
+        setEstadoInput("text");
+    }
+
+    const ocultarContraseña = () => {
+        const ojoCerradoImg = ojoCerrado.current;
+        const ojoAbiertoImg = ojoAbierto.current;
+        ojoCerradoImg.style.display = "inline";
+        ojoAbiertoImg.style.display = "none";
+        setEstadoInput("password");
+    }
+
     return (
         <section id={loginStyles.sectionLogin}>
             <div id={loginStyles.conteinerLogin}>
                 <div id={loginStyles.primeraLineaLogin}>
-                    <Image
-                        src='/flecha-atras.png'
-                        width={25}
-                        height={25}
-                        alt="flecha-atras"
-                        id={loginStyles.flechaAtrasLogin}
-                    /><p id={loginStyles.IniciarSesion}>Iniciar Sesión</p>
+                    <Link href={"/"} id={loginStyles.flechaAtrasLoginLink}>
+                        <Image
+                            src='/flecha-atras.png'
+                            width={19}
+                            height={19}
+                            alt="flecha-atras"
+                            id={loginStyles.flechaAtrasLogin}
+                        />
+                    </Link><p id={loginStyles.IniciarSesion}>Iniciar Sesión</p>
                 </div>
 
                 <form id={loginStyles.formLogin}>
                     <label className={loginStyles.labelsLogin}>Nombre de Usuario o E-mail:</label>
+
                     <input className={loginStyles.inputsLogin} autoFocus onChange={capturarUserinfo} minLength="3" ref={inputInfoUser} type='text'></input>
 
                     <label className={loginStyles.labelsLogin}>Contraseña:</label>
-                    <input className={loginStyles.inputsLogin} id={loginStyles.inputContraseñaLogin} minLength="8" onChange={capturarContraseña} ref={inputContraseña} type='password'></input>
+                    <div id={loginStyles.contenedorInputContraseña}>
+                        <input className={loginStyles.inputsLogin} id={loginStyles.inputContraseñaLogin} minLength="8" onChange={capturarContraseña} ref={inputContraseña} type={estadoInput}></input>
+                        <Image
+                            src='/ojo-cerrado.png'
+                            width={19}
+                            height={19}
+                            alt='ojo-cerrado'
+                            id={loginStyles.ojoCerradoImagen}
+                            ref={ojoCerrado}
+                            onClick={mostrarContraseña} />
+                        <Image
+                            src='/ojo-abierto.png'
+                            width={19}
+                            height={19}
+                            alt='ojo-abierto'
+                            id={loginStyles.ojoAbiertoImagen}
+                            ref={ojoAbierto}
+                            onClick={ocultarContraseña}
+                        />
+                    </div>
                     <p id={loginStyles.errorMsg} ref={msgError}>* Usuario o contraseña incorrectos</p>
                     <button id={loginStyles.botonIniciarSesion} onClick={enviarDatos} disabled={botonDisabled} ref={botonIniciarSesion}>Iniciar Sesion</button>
                 </form>
