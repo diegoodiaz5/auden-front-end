@@ -1,6 +1,7 @@
 import React from 'react'
 import inicio from '../../../styles/inicio.module.css'
 import Image from 'next/image'
+import NavBar from '../../../components/NavBar/NavBar'
 
 export default function Inicio() {
     return (
@@ -82,6 +83,7 @@ export default function Inicio() {
                     <p className={inicio.textos}>Creamos la playlist perfecta para cualquier situación.</p>
                 </div>
             </div>
+            <NavBar />
         </main>
     )
 }
