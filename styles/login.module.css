@@ -148,3 +148,16 @@
     color: rgb(83, 83, 83);
     max-width: 250px;
 }
+
+#flechaAtrasRecuperarContraseña {
+    position: absolute;
+    left: 0;
+    cursor: pointer;
+}
+
+#parrafoUsuarioNoExiste {
+    color: red;
+    font-size: .8rem;
+    font-weight: 600;
+    visibility: hidden;
+}
