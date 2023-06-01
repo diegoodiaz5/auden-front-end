@@ -161,3 +161,57 @@
     font-weight: 600;
     visibility: hidden;
 }
+
+@media screen and (max-width: 540px) {
+    .labelsLogin {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #conteinerLogin {
+        border: none;
+        padding: 70px 0;
+    }
+
+    #contenedorRecuperarContraseña {
+        border: none;
+        padding: 70px 0;
+    }
+}
+
+@media screen and (max-width: 250px) {
+    .inputsLogin {
+        width: 90vw;
+    }
+
+    #ojoCerradoImagen {
+        display: none;
+    }
+
+    #ojoAbiertoImagen {
+        display: none;
+    }
+
+    #botonIniciarSesion {
+        width: 90vw;
+    }
+
+    #continuarRecuperarContraseña {
+        width: 90vw;
+    }
+
+    #primeraLineaRecuperarContra {
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width: 180px) {
+    #flechaAtrasRecuperarContraseña {
+        left: -5px;
+    }
+
+    #recuperarCuenta {
+        font-size: .8rem;
+    }
+}
