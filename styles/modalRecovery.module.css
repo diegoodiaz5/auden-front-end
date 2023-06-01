@@ -42,3 +42,30 @@
 .textosModal>span {
     font-weight: 600;
 }
+
+@media screen and (max-width: 400px) {
+    #subcontenedorModal {
+        padding: 60px 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    #subcontenedorModal {
+        padding: 60px 20px;
+    }
+
+    .textosModal {
+        font-size: .9rem;
+        max-width: 200px;
+    }
+
+    #botonEntendido {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 200px) {
+    #subcontenedorModal {
+        padding: 60px 0;
+    }
+}
