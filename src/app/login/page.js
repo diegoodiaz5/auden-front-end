@@ -5,6 +5,7 @@ import loginStyles from "../../../styles/login.module.css";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
+import ModalRecovery from "../../../components/ModalRecovery/ModalRecovery"
 
 export default function Login() {
     const router = useRouter();
@@ -18,13 +19,16 @@ export default function Login() {
     const contenedorLogin = React.useRef(null);
     const contenedorRecuperarContraseña = React.useRef(null);
     const botonContinuarRecupContra = React.useRef(null);
+    const usuarioNoExisteParrafo = React.useRef(null);
 
     const [userinfo, setUserinfo] = useState('');
     const [contraseña, setContraseña] = useState('');
     const [botonDisabled, setBotonDisabled] = useState(true);
     const [estadoInput, setEstadoInput] = useState("password");
     const [botonRecuperarContraseña, setBotonRecuperarContraseña] = useState(true);
-    const [recuperarContra, setRecuperarContra] = useState('');
+    const [datarecuperarContra, setDataRecuperarContra] = useState('');
+    const [mostrarModal, setMostrarModal] = useState(false);
+    const [emailRecovery, setEmailRecovery] = useState('');
 
     const capturarUserinfo = (e) => {
         setUserinfo(e.target.value);
@@ -106,10 +110,17 @@ export default function Login() {
         contRecupContra.style.display = "flex";
     }
 
+    const mostrarIniciarSesion = () => {
+        const contLogin = contenedorLogin.current;
+        const contRecupContra = contenedorRecuperarContraseña.current;
+        contLogin.style.display = "flex";
+        contRecupContra.style.display = "none";
+    }
+
     const capturarRecuperarContraseña = (e) => {
         const botonContinuar = botonContinuarRecupContra.current;
         e.preventDefault();
-        setRecuperarContra(e.target.value)
+        setDataRecuperarContra(e.target.value)
         if (e.target.value.length >= 3) {
             setBotonRecuperarContraseña(false);
             botonContinuar.style.backgroundColor = "#FF8E0A"
@@ -119,6 +130,32 @@ export default function Login() {
             botonContinuar.style.backgroundColor = "rgba(172, 171, 171, 0.603)";
             botonContinuar.style.cursor = "default";
         }
+    }
+
+    const enviarRecuperacionCuenta = async (e) => {
+        const mostrarError = usuarioNoExisteParrafo.current;
+        e.preventDefault();
+        const resp = await fetch('http://localhost:1234/verificarUsuario', {
+            method: 'POST',
+            body: JSON.stringify({
+                info: datarecuperarContra
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        const respJson = await resp.json();
+        if (respJson.existe) {
+            showModal();
+            mostrarError.style.visibility = "hidden";
+            setEmailRecovery(respJson.email)
+        } else {
+            mostrarError.style.visibility = "visible";
+        }
+    }
+
+    const showModal = () => {
+        setMostrarModal(!mostrarModal)
     }
 
     return (
@@ -172,6 +209,7 @@ export default function Login() {
                         height={19}
                         alt="flecha-atras"
                         id={loginStyles.flechaAtrasRecuperarContraseña}
+                        onClick={mostrarIniciarSesion}
                     />
                     <p id={loginStyles.recuperarCuenta}>Recuperar Cuenta</p>
                 </div>
@@ -179,9 +217,11 @@ export default function Login() {
                     <label className={loginStyles.labelsLogin}>Nombre de usuario o E-mail</label>
                     <input className={loginStyles.inputsLogin} minLength="3" onChange={capturarRecuperarContraseña}></input>
                     <p id={loginStyles.parrafoRecuperarContraseña}>Deberás poder ingresar al email de la cuenta para poder recuperarla</p>
-                    <button id={loginStyles.continuarRecuperarContraseña} disabled={botonRecuperarContraseña} ref={botonContinuarRecupContra}>Continuar</button>
+                    <p id={loginStyles.parrafoUsuarioNoExiste} ref={usuarioNoExisteParrafo}>*El usuario/E-mail no existe</p>
+                    <button id={loginStyles.continuarRecuperarContraseña} disabled={botonRecuperarContraseña} ref={botonContinuarRecupContra} onClick={enviarRecuperacionCuenta}>Continuar</button>
                 </form>
             </div>
+            {mostrarModal && <ModalRecovery mostrarModal={showModal} email={emailRecovery} mostrarIniciarSesion={mostrarIniciarSesion} />}
         </section >
 
     )
