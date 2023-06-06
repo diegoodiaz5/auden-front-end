@@ -96,7 +96,7 @@ export default function NavBar() {
                     </Link>
                 </ul>
                 <ul>
-                    <Link href={'/amigos'} className={nav.uls}>
+                    <Link href={'/amigos'} className={nav.uls} id={nav.amigosImage}>
                         <Image
                             src=''
                             width={30}

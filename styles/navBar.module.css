@@ -22,3 +22,15 @@
 .uls:visited {
     color: black;
 }
+
+@media screen and (max-width: 270px) {
+    #amigosImage {
+        display: none;
+    }
+
+    #list {
+        gap: 0;
+        width: 100vw;
+        justify-content: space-evenly;
+    }
+}
