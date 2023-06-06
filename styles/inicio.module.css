@@ -50,19 +50,10 @@
     animation: auricularesAnimation 3s ease-out 1s infinite normal;
 }
 
-#contenedorPregunta {
-    position: relative;
-    width: 100%;
-    animation: angelAnimation 3s ease-out 1s infinite normal;
-}
-
-#signoPregunta,
-#signoPregunta2,
-#signoPregunta3 {
+#signoPregunta {
     transform: rotate(20deg);
-    position: absolute;
-    top: -30px;
-    left: 10px;
+    position: relative;
+    animation: angelAnimation 3s ease-out 1s infinite normal;
 }
 
 #mapaImagen {
@@ -93,6 +84,28 @@
     }
 }
 
+@keyframes angelAnimation2 {
+    0% {
+        transform: rotate(10deg);
+    }
+
+    45% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
 @keyframes auricularesAnimation {
     0% {
         transform: translate(0%);
@@ -112,5 +125,81 @@
 
     100% {
         transform: translate(-60%);
+    }
+}
+
+@keyframes auricularesAnimation2 {
+    0% {
+        transform: rotate(10deg);
+    }
+
+    45% {
+        transform: rotate(-10deg);
+    }
+
+    60% {
+        transform: rotate(10deg);
+    }
+
+    80% {
+        transform: rotate(-10deg);
+    }
+
+    100% {
+        transform: rotate(10deg);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #main {
+        padding: 10px;
+    }
+
+    .contenedoresDeSecciones {
+        width: 100%;
+    }
+
+    .contenedorNegro {
+        gap: 0px;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .textos {
+        font-size: .8rem;
+    }
+
+    .textosH2 {
+        font-size: 1rem;
+    }
+
+    #auricularesImage {
+        display: none;
+    }
+
+    #angelImage {
+        animation-name: angelAnimation2;
+    }
+
+    #mapaImagen {
+        display: none;
+    }
+
+    #signoPregunta {
+        animation-name: auricularesAnimation2;
+    }
+}
+
+@media screen and (max-width: 260px) {
+    .contenedorNegro {
+        display: none;
+    }
+
+    .contenedoresDeSecciones {
+        padding-left: 5px;
+    }
+
+    #musicaYa {
+        font-size: 1.5rem;
     }
 }
