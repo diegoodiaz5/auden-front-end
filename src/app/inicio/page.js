@@ -2,6 +2,7 @@ import React from 'react'
 import inicio from '../../../styles/inicio.module.css'
 import Image from 'next/image'
 import NavBar from '../../../components/NavBar/NavBar'
+import Link from 'next/link'
 
 export default function Inicio() {
     return (
@@ -23,28 +24,30 @@ export default function Inicio() {
                     />
                 </span>
             </div>
-            <div className={inicio.contenedoresDeSecciones}>
-                <div className={inicio.contenedorNegro}>
-                    <Image
-                        src='/angel.png'
-                        width={60}
-                        height={70}
-                        alt='angel'
-                        id={inicio.angelImage}
-                    />
-                    <Image
-                        src='/auriculares.png'
-                        width={40}
-                        height={40}
-                        alt='auriculares'
-                        id={inicio.auricularesImage}
-                    />
+            <Link href={'/cupido'} className={inicio.links}>
+                <div className={inicio.contenedoresDeSecciones}>
+                    <div className={inicio.contenedorNegro}>
+                        <Image
+                            src='/angel.png'
+                            width={60}
+                            height={70}
+                            alt='angel'
+                            id={inicio.angelImage}
+                        />
+                        <Image
+                            src='/auriculares.png'
+                            width={40}
+                            height={40}
+                            alt='auriculares'
+                            id={inicio.auricularesImage}
+                        />
+                    </div>
+                    <div className={inicio.contenedorTextos}>
+                        <h2 className={inicio.textosH2}>Cupido Musical</h2>
+                        <p className={inicio.textos}>Tus artistas favoritos nunca van a dejarte con el corazón roto.</p>
+                    </div>
                 </div>
-                <div className={inicio.contenedorTextos}>
-                    <h2 className={inicio.textosH2}>Cupido Musical</h2>
-                    <p className={inicio.textos}>Tus artistas favoritos nunca van a dejarte con el corazón roto.</p>
-                </div>
-            </div>
+            </Link>
             <div className={inicio.contenedoresDeSecciones}>
                 <div className={inicio.contenedorNegro}>
                     <Image
