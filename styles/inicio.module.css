@@ -20,6 +20,15 @@
     gap: 10px;
 }
 
+.contenedoresDeSecciones:hover {
+    transform: scale(1.0050);
+    transition: .5s;
+}
+
+.contenedoresDeSecciones:not(:hover) {
+    transition: .5s;
+}
+
 .contenedorNegro {
     display: flex;
     justify-content: center;
@@ -60,6 +69,12 @@
     position: relative;
     right: 10px;
     animation: auricularesAnimation 3s ease-out 1s infinite normal;
+}
+
+.links:link,
+.links:visited {
+    text-decoration: none;
+    color: black;
 }
 
 @keyframes angelAnimation {
