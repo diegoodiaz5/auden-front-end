@@ -1,0 +1,72 @@
+#contenedor {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(53, 53, 53, 0.514);
+    margin: 0;
+    padding: 0;
+    position: absolute;
+}
+
+#subContenedor {
+    width: 320px;
+    height: 98vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+
+#subContenedor>div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tituloCulpido {
+    padding-top: 50px;
+    font-size: 1.5rem;
+}
+
+#contenedorImagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 200px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1) 0%, rgba(255, 230, 199, 1) 85%, rgba(255, 205, 146, 1) 100%);
+}
+
+#textoInfo {
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 700;
+    padding: 30px 40px;
+    line-height: 28px;
+}
+
+#boton {
+    width: 250px;
+    height: 45px;
+    font-size: 1.1rem;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    outline: none;
+    color: white;
+    background-color: #26262E;
+    cursor: pointer;
+}
+
+#boton:hover {
+    opacity: 95%;
+    transition: .3s;
+}
+
+#boton:not(:hover) {
+    transition: .3s;
+}
